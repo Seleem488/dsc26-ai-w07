@@ -1,16 +1,13 @@
 # AI usage
 
-<!-- Replace every comment below with your own words. Short is fine. Your Track Mentor reads it. -->
-
 ## Tools I used, and for what
 
-<!-- e.g. "Claude for a first regex draft in guards.py; Copilot autocomplete in service.py" -->
+I used ChatGPT to review my implementation, identify potential edge cases, explain possible weaknesses, and suggest additional test scenarios. I wrote the initial PII detection regex myself and used ChatGPT for code review and testing guidance rather than generating the initial regex. I also used Python, pytest, and manual test cases to validate the implementation.
 
-## The PII cases my AI-written regex missed at first, and how I found them
+## The PII cases my initial regex missed at first, and how I found them
 
-<!-- Which case (a digit script, a separator, a near-miss date, a boundary), and how you
-     caught it (a property test, a counter-example, re-reading the spec). -->
+My initial regex was written by me, not AI-generated. During testing and review, I checked Egyptian phone number formats that could be missed, including international prefixes, alternative separators, and different digit lengths. Examples included +201012345678, 00201012345678, +2 010 12345678, 002-010-1234-5678, and 0101234567. I used ChatGPT's review suggestions and manual counterexamples to identify potential gaps and improve coverage.
 
 ## One sentence on what my service does when the model is down, written for a pharmacist
 
-<!-- Plain language, no jargon: what the pharmacist sees and why they can still trust it. -->
+If the prediction model is unavailable, the service automatically uses a rule-based fallback to provide an alternative shortage-risk estimate, so the pharmacist still receives a result while knowing it was not produced by the main prediction model.
